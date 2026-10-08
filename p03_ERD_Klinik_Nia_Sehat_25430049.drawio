@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram id="klinik-erd-25430049" name="ERD Klinik Nia Sehat">
+    <mxGraphModel dx="2208" dy="1156" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1050" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;whiteSpace=wrap;" value="ERD KONSEPTUAL — KLINIK NIA SEHAT&amp;lt;br&amp;gt;Nama: Nia Ramadhani | NIM: 25430049 | Tema: Klinik" vertex="1">
+          <mxGeometry height="65" width="1050" x="250" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A680B8;strokeColor=#3D5266;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;" value="&lt;b&gt;PASIEN&lt;/b&gt;&lt;hr/&gt;PK id_pasien&lt;br/&gt;AK no_pasien&lt;br/&gt;nama_pasien&lt;br/&gt;tgl_lahir_pasien&lt;br/&gt;jk_pasien&lt;br/&gt;alamat_pasien&lt;br/&gt;no_hp_pasien" vertex="1">
+          <mxGeometry height="252" width="330" x="80" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A9C4EB;strokeColor=#3D5266;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;" value="&lt;b&gt;DOKTER&lt;/b&gt;&lt;hr/&gt;PK id_dokter&lt;br/&gt;nama_dokter&lt;br/&gt;spesialisasi_dokter&lt;br/&gt;no_hp_dokter" vertex="1">
+          <mxGeometry height="162" width="330" x="600" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9933;strokeColor=#3D5266;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;" value="&lt;b&gt;KUNJUNGAN&lt;/b&gt;&lt;hr/&gt;PK id_kunjungan&lt;br/&gt;AK no_kunjungan&lt;br/&gt;tgl_kunjungan&lt;br/&gt;FK id_pasien&lt;br/&gt;FK id_dokter" vertex="1">
+          <mxGeometry height="192" width="330" x="340" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EA6B66;strokeColor=#3D5266;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;" value="&lt;b&gt;PEMERIKSAAN&lt;/b&gt;&lt;hr/&gt;PK id_pemeriksaan&lt;br/&gt;FK id_kunjungan&lt;br/&gt;keluhan&lt;br/&gt;diagnosis&lt;br/&gt;tindakan&lt;br/&gt;catatan_pemeriksaan" vertex="1">
+          <mxGeometry height="222" width="330" x="80" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B9E0A5;strokeColor=#3D5266;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;" value="&lt;b&gt;RESEP&lt;/b&gt;&lt;hr/&gt;PK id_resep&lt;br/&gt;FK id_kunjungan&lt;br/&gt;tgl_resep&lt;br/&gt;catatan_resep" vertex="1">
+          <mxGeometry height="162" width="330" x="600" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9999FF;strokeColor=#3D5266;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;" value="&lt;b&gt;OBAT&lt;/b&gt;&lt;hr/&gt;PK id_obat&lt;br/&gt;AK kode_obat&lt;br/&gt;nama_obat&lt;br/&gt;satuan_obat&lt;br/&gt;stok_obat&lt;br/&gt;harga_obat" vertex="1">
+          <mxGeometry height="222" width="330" x="1050" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#3D5266;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;" value="&lt;b&gt;DETAIL_RESEP&lt;/b&gt;&lt;hr/&gt;PK,FK id_resep&lt;br/&gt;PK,FK id_obat&lt;br/&gt;jumlah_obat&lt;br/&gt;aturan_pakai" vertex="1">
+          <mxGeometry height="162" width="330" x="820" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF99FF;strokeColor=#3D5266;fontSize=12;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;" value="&lt;b&gt;PEMBAYARAN&lt;/b&gt;&lt;hr/&gt;PK id_pembayaran&lt;br/&gt;AK no_pembayaran&lt;br/&gt;FK id_kunjungan&lt;br/&gt;tgl_pembayaran&lt;br/&gt;total_pembayaran&lt;br/&gt;status_pembayaran" vertex="1">
+          <mxGeometry height="222" width="330" x="340" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="20" edge="1" parent="1" source="2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#3D5266;strokeWidth=2;endArrow=ERone;startArrow=ERzeroToMany;startFill=0;endFill=0;fontSize=11;labelBackgroundColor=#FFFFFF;" target="4" value="1  —  0..N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#3D5266;strokeWidth=2;endArrow=ERone;startArrow=ERzeroToMany;startFill=0;endFill=0;fontSize=11;labelBackgroundColor=#FFFFFF;" target="4" value="1  —  0..N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" edge="1" parent="1" source="4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#3D5266;strokeWidth=2;endArrow=ERone;startArrow=ERzeroToMany;startFill=0;endFill=0;fontSize=11;labelBackgroundColor=#FFFFFF;" target="5" value="1  —  1..N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" edge="1" parent="1" source="4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#3D5266;strokeWidth=2;endArrow=ERone;startArrow=ERzeroToMany;startFill=0;endFill=0;fontSize=11;labelBackgroundColor=#FFFFFF;" target="6" value="1  —  0..N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" edge="1" parent="1" source="6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#3D5266;strokeWidth=2;endArrow=ERone;startArrow=ERzeroToMany;startFill=0;endFill=0;fontSize=11;labelBackgroundColor=#FFFFFF;" target="8" value="1  —  1..N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" edge="1" parent="1" source="7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#3D5266;strokeWidth=2;endArrow=ERone;startArrow=ERzeroToMany;startFill=0;endFill=0;fontSize=11;labelBackgroundColor=#FFFFFF;" target="8" value="1  —  0..N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" edge="1" parent="1" source="4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#3D5266;strokeWidth=2;endArrow=ERone;startArrow=ERzeroToMany;startFill=0;endFill=0;fontSize=11;labelBackgroundColor=#FFFFFF;" target="9" value="1  —  0..1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;whiteSpace=wrap;" value="Keterangan: PK = Primary Key | FK = Foreign Key | AK = Alternate Key&amp;lt;br&amp;gt;Catatan: kardinalitas perlu disesuaikan jika aturan bisnis klinik menetapkan hubungan yang berbeda." vertex="1">
+          <mxGeometry height="55" width="1400" x="80" y="970" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
