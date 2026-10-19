@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="qE0kekyNi6PSsOsjYcW5">
+    <mxGraphModel dx="2002" dy="1049" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pasien" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="PASIEN&#xa;PK id_pasien&#xa;no_pasien&#xa;nama_pasien&#xa;tgl_lahir_pasien&#xa;jk_pasien&#xa;alamat_pasien&#xa;no_hp_pasien" vertex="1">
+          <mxGeometry height="180" width="200" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="dokter" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="DOKTER&#xa;PK id_dokter&#xa;nama_dokter&#xa;spesialisasi_dokter&#xa;no_hp_dokter" vertex="1">
+          <mxGeometry height="140" width="200" x="350" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="kunjungan" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="KUNJUNGAN&#xa;PK id_kunjungan&#xa;no_kunjungan&#xa;FK id_pasien&#xa;FK id_dokter&#xa;tgl_kunjungan" vertex="1">
+          <mxGeometry height="150" width="220" x="350" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="pemeriksaan" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="PEMERIKSAAN&#xa;PK id_pemeriksaan&#xa;FK id_kunjungan&#xa;keluhan&#xa;diagnosis&#xa;tindakan&#xa;catatan_pemeriksaan" vertex="1">
+          <mxGeometry height="160" width="220" x="40" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="resep" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="RESEP&#xa;PK id_resep&#xa;FK id_kunjungan&#xa;tgl_resep&#xa;catatan_resep" vertex="1">
+          <mxGeometry height="130" width="200" x="350" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="obat" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="OBAT&#xa;PK id_obat&#xa;kode_obat&#xa;nama_obat&#xa;satuan_obat&#xa;stok_obat&#xa;harga_obat" vertex="1">
+          <mxGeometry height="150" width="200" x="680" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="detailresep" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="DETAIL_RESEP&#xa;PK, FK id_resep&#xa;PK, FK id_obat&#xa;jumlah_obat&#xa;aturan_pakai" vertex="1">
+          <mxGeometry height="120" width="220" x="680" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="pembayaran" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="PEMBAYARAN&#xa;PK id_pembayaran&#xa;no_pembayaran&#xa;FK id_kunjungan&#xa;tgl_pembayaran&#xa;total_pembayaran&#xa;status_pembayaran" vertex="1">
+          <mxGeometry height="160" width="230" x="980" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="detailpembayaran" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="DETAIL_PEMBAYARAN&#xa;PK, FK no_pembayaran&#xa;PK no_baris&#xa;jenis_biaya&#xa;keterangan_biaya&#xa;jumlah_biaya" vertex="1">
+          <mxGeometry height="140" width="230" x="980" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" edge="1" parent="1" source="pasien" style="endArrow=none;startArrow=none;html=1;" target="kunjungan" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" edge="1" parent="1" source="dokter" style="endArrow=none;startArrow=none;html=1;" target="kunjungan" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r3" edge="1" parent="1" source="kunjungan" style="endArrow=none;startArrow=none;html=1;" target="pemeriksaan" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r4" edge="1" parent="1" source="kunjungan" style="endArrow=none;startArrow=none;html=1;" target="resep" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r5" edge="1" parent="1" source="resep" style="endArrow=none;startArrow=none;html=1;" target="detailresep" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r6" edge="1" parent="1" source="obat" style="endArrow=none;startArrow=none;html=1;" target="detailresep" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r7" edge="1" parent="1" source="kunjungan" style="endArrow=none;startArrow=none;html=1;" target="pembayaran" value="1 : 1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r8" edge="1" parent="1" source="pembayaran" style="endArrow=none;startArrow=none;html=1;" target="detailpembayaran" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
