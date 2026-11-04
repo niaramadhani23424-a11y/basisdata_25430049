@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram id="klinik049-erd" name="ERD Fisik Klinik Nia Sehat">
+    <mxGraphModel dx="2075" dy="1851" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;" value="ERD FISIK KLINIK NIA SEHAT&lt;br&gt;&lt;font style=&#39;font-size:14px&#39;&gt;Database: klinik_049&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="700" x="350" as="geometry" />
+        </mxCell>
+        <mxCell id="t1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=8;spacingTop=8;spacingBottom=6;fontSize=12;strokeWidth=1.5;fillColor=#6666FF;" value="&lt;b&gt;PASIEN&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;&lt;b&gt;PK&lt;/b&gt; id_pasien INT AUTO_INCREMENT&lt;br&gt;&lt;b&gt;UQ&lt;/b&gt; no_pasien VARCHAR(10)&lt;br&gt;nama_pasien VARCHAR(100)&lt;br&gt;tgl_lahir_pasien DATE NULL&lt;br&gt;jk_pasien ENUM(&#39;L&#39;,&#39;P&#39;) NULL&lt;br&gt;alamat_pasien VARCHAR(200) NULL&lt;br&gt;no_hp_pasien VARCHAR(15) NULL" vertex="1">
+          <mxGeometry height="206" width="270" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=8;spacingTop=8;spacingBottom=6;fontSize=12;strokeWidth=1.5;fillColor=#A680B8;" value="&lt;b&gt;DOKTER&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;&lt;b&gt;PK&lt;/b&gt; id_dokter INT AUTO_INCREMENT&lt;br&gt;&lt;b&gt;UQ&lt;/b&gt; kode_dokter VARCHAR(10)&lt;br&gt;nama_dokter VARCHAR(100)&lt;br&gt;spesialisasi_dokter VARCHAR(100) NULL&lt;br&gt;no_hp_dokter VARCHAR(15) NULL" vertex="1">
+          <mxGeometry height="158" width="270" x="360" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="t3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=8;spacingTop=8;spacingBottom=6;fontSize=12;strokeWidth=1.5;fillColor=#67AB9F;" value="&lt;b&gt;PETUGAS&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;&lt;b&gt;PK&lt;/b&gt; id_petugas INT AUTO_INCREMENT&lt;br&gt;&lt;b&gt;UQ&lt;/b&gt; kode_petugas VARCHAR(10)&lt;br&gt;nama_petugas VARCHAR(100)&lt;br&gt;peran_petugas ENUM(&#39;admin&#39;,&#39;kasir&#39;,&#39;perawat&#39;)" vertex="1">
+          <mxGeometry height="134" width="270" x="680" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="t4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=8;spacingTop=8;spacingBottom=6;fontSize=12;strokeWidth=1.5;fillColor=#B9E0A5;" value="&lt;b&gt;OBAT&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;&lt;b&gt;PK&lt;/b&gt; id_obat INT AUTO_INCREMENT&lt;br&gt;&lt;b&gt;UQ&lt;/b&gt; kode_obat VARCHAR(10)&lt;br&gt;nama_obat VARCHAR(100)&lt;br&gt;satuan_obat VARCHAR(20)&lt;br&gt;harga_obat DECIMAL(12,2) DEFAULT 0&lt;br&gt;stok_obat INT DEFAULT 0" vertex="1">
+          <mxGeometry height="182" width="270" x="1000" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="t5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=8;spacingTop=8;spacingBottom=6;fontSize=12;strokeWidth=1.5;fillColor=#FF9933;" value="&lt;b&gt;KUNJUNGAN&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;&lt;b&gt;PK&lt;/b&gt; id_kunjungan INT AUTO_INCREMENT&lt;br&gt;&lt;b&gt;UQ&lt;/b&gt; no_kunjungan VARCHAR(10)&lt;br&gt;&lt;b&gt;FK&lt;/b&gt; id_pasien INT&lt;br&gt;&lt;b&gt;FK&lt;/b&gt; id_dokter INT&lt;br&gt;&lt;b&gt;FK&lt;/b&gt; id_petugas INT&lt;br&gt;tanggal_kunjungan DATETIME&lt;br&gt;keluhan VARCHAR(500) NULL" vertex="1">
+          <mxGeometry height="206" width="270" x="360" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="t6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=8;spacingTop=8;spacingBottom=6;fontSize=12;strokeWidth=1.5;fillColor=#B9E0A5;" value="&lt;b&gt;PEMERIKSAAN&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;&lt;b&gt;PK&lt;/b&gt; id_pemeriksaan INT AUTO_INCREMENT&lt;br&gt;&lt;b&gt;FK&lt;/b&gt; id_kunjungan INT&lt;br&gt;diagnosis VARCHAR(500) NULL&lt;br&gt;tindakan VARCHAR(500) NULL&lt;br&gt;biaya_pemeriksaan DECIMAL(12,2) DEFAULT 0" vertex="1">
+          <mxGeometry height="158" width="270" x="40" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="t7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=8;spacingTop=8;spacingBottom=6;fontSize=12;strokeWidth=1.5;fillColor=#FF66B3;" value="&lt;b&gt;RESEP&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;&lt;b&gt;PK&lt;/b&gt; id_resep INT AUTO_INCREMENT&lt;br&gt;&lt;b&gt;FK&lt;/b&gt; id_kunjungan INT&lt;br&gt;tanggal_resep DATETIME&lt;br&gt;catatan_resep VARCHAR(500) NULL" vertex="1">
+          <mxGeometry height="134" width="270" x="360" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="t8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=8;spacingTop=8;spacingBottom=6;fontSize=12;strokeWidth=1.5;fillColor=#B3B3B3;" value="&lt;b&gt;DETAIL_RESEP&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;&lt;b&gt;PK, FK&lt;/b&gt; id_resep INT&lt;br&gt;&lt;b&gt;PK, FK&lt;/b&gt; id_obat INT&lt;br&gt;jumlah_obat INT&lt;br&gt;aturan_pakai VARCHAR(200)" vertex="1">
+          <mxGeometry height="134" width="270" x="1000" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="t9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=8;spacingTop=8;spacingBottom=6;fontSize=12;strokeWidth=1.5;fillColor=#990099;" value="&lt;b&gt;PEMBAYARAN&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;&lt;b&gt;PK&lt;/b&gt; no_pembayaran VARCHAR(12)&lt;br&gt;&lt;b&gt;UQ, FK&lt;/b&gt; id_kunjungan INT&lt;br&gt;tanggal_bayar DATETIME&lt;br&gt;status_pembayaran ENUM(&#39;Belum Lunas&#39;,&#39;Lunas&#39;)" vertex="1">
+          <mxGeometry height="134" width="270" x="680" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="t10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingRight=8;spacingTop=8;spacingBottom=6;fontSize=12;strokeWidth=1.5;fillColor=#FFE6CC;" value="&lt;b&gt;DETAIL_PEMBAYARAN&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;&lt;b&gt;PK, FK&lt;/b&gt; no_pembayaran VARCHAR(12)&lt;br&gt;&lt;b&gt;PK&lt;/b&gt; no_baris SMALLINT&lt;br&gt;jenis_biaya VARCHAR(50)&lt;br&gt;keterangan_biaya VARCHAR(200) NULL&lt;br&gt;jumlah_biaya DECIMAL(12,2)" vertex="1">
+          <mxGeometry height="158" width="270" x="680" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="t1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERone;endFill=0;startArrow=ERmany;startFill=0;fontSize=11;labelBackgroundColor=#ffffff;" target="t5" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="t2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERone;endFill=0;startArrow=ERmany;startFill=0;fontSize=11;labelBackgroundColor=#ffffff;" target="t5" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="t3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERone;endFill=0;startArrow=ERmany;startFill=0;fontSize=11;labelBackgroundColor=#ffffff;" target="t5" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="t5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERone;endFill=0;startArrow=ERmany;startFill=0;fontSize=11;labelBackgroundColor=#ffffff;" target="t6" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="t5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERone;endFill=0;startArrow=ERmany;startFill=0;fontSize=11;labelBackgroundColor=#ffffff;" target="t7" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="t7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERone;endFill=0;startArrow=ERmany;startFill=0;fontSize=11;labelBackgroundColor=#ffffff;" target="t8" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="t4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERone;endFill=0;startArrow=ERmany;startFill=0;fontSize=11;labelBackgroundColor=#ffffff;" target="t8" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="t5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERone;endFill=0;startArrow=ERmany;startFill=0;fontSize=11;labelBackgroundColor=#ffffff;" target="t9" value="1 : 0..1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="t9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERone;endFill=0;startArrow=ERmany;startFill=0;fontSize=11;labelBackgroundColor=#ffffff;" target="t10" value="1 : N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacing=8;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;" value="&lt;b&gt;Keterangan:&lt;/b&gt;&lt;br&gt;&lt;b&gt;PK&lt;/b&gt; = Primary Key&lt;br&gt;&lt;b&gt;FK&lt;/b&gt; = Foreign Key&lt;br&gt;&lt;b&gt;UQ&lt;/b&gt; = Unique" vertex="1">
+          <mxGeometry height="110" width="220" x="1300" y="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
